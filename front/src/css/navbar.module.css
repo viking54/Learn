@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-size:contain;
+  align-items: center;
+  background-image: url("../images/blackk.jpg");
+  padding: 10px 20px;
+}
+
+.navbarHeading {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.952), -2px -2px 4px rgb(255, 0, 0);
+}
+
+.navbarList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbarList li {
+  margin-left: 10px;
+}
+
+.navbarLink {
+  text-decoration: none;
+  color: #ffd900;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.3);
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbarLink:hover {
+  background-color: rgb(17, 128, 7); 
+  text-shadow: 2px 2px 4px rgb(223, 7, 7);
+
+}

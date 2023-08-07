@@ -1,0 +1,166 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/blackk.jpg'); 
+  background-size: cover;
+  background-position: center;
+}
+
+.loginForm {
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.01); /* Increase transparency */
+  border-radius: 25px; /* Add more curved corners */
+  animation: slide-up 0.5s ease;
+  box-shadow: 2px 2px 4px rgb(62, 0, 233), -2px -2px 4px rgba(255, 255, 255,5);
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffd900;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #3498db;
+}
+
+.error {
+  color: rgb(255, 255, 255);
+  margin-bottom: 15px; /* Adjust the margin to move the error message up */
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(214, 41, 10, 0.945);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.msg {
+  color: rgb(255, 255, 255);
+  margin-bottom: 15px; /* Adjust the margin to move the error message up */
+  text-align: center;
+  font-size: 14px;
+  background-color: rgba(18, 160, 30, 0.945);
+  padding: 5px;
+  border-radius: 5px;
+}
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Center the loader vertically and horizontally */
+  margin-bottom: 15px; /* Add margin to create space between loader and button */
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto; /* Center the loader horizontally */
+  margin-bottom: 10px; /* Add some space between the loader and the button */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loginButton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #6e34db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+.loginButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.loginButton:hover {
+  background-color: #1e87dc;
+}
+
+.signUpButton {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 3px solid #0b7a14;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.signUpButton:hover {
+  background-color: #0fa30f;
+  color: #fff;
+}
+
+.signUp2Button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #eff3ef;
+  border: 3px solid #ffee03;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  /* Add 3D effect */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), -2px -2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.signUp2Button:hover {
+  background-color: #8d8405;
+  color: #ffffff;
+}
