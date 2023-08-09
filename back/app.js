@@ -17,7 +17,7 @@ dotenv.config({ path: "./config.env" });
 require("./db/conn");
 app.use(express.json());
 
-app.use(cors({ origin: 'https://shop-wifw.onrender.com', credentials: true }));
+app.use(cors({ origin: 'https://velvety-starship-2ed83a.netlify.app', credentials: true }));
 app.use("/uploads", express.static("uploads"));
 app.use("/api/task", taskRoutes);
 app.use("/api/sellertask", sellerTaskRoutes);
