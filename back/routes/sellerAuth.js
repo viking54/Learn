@@ -36,8 +36,6 @@ router.post("/", async (req, res) => {
       console.log(token);
       res.cookie("jwttoken", token, {
         expires: new Date(Date.now() + 25892000000),
-        sameSite: "none",
-        secure: true 
   
       });
       return res.status(200).send({ message: "Logged in" });
