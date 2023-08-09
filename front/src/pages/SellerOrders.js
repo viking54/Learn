@@ -27,7 +27,7 @@ const SellerOrders = () => {
   const fetchOrders = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/producttask/callorders/${sellerData._id}`
+        `https://gadgetshop.onrender.com/api/producttask/callorders/${sellerData._id}`
       );
       setProducts(data);
       console.log("Response data:", data); // Check the response data
@@ -39,7 +39,7 @@ const SellerOrders = () => {
   const handleClick = async (orderId, status) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/producttask/updateOrderStatus/${orderId}`,
+        `https://gadgetshop.onrender.com/api/producttask/updateOrderStatus/${orderId}`,
         { status }
       );
   
@@ -66,7 +66,7 @@ const SellerOrders = () => {
              
               <img
                 className={styles.productimage}
-                src={`http://localhost:5000/${product.image}`}
+                src={`https://gadgetshop.onrender.com/${product.image}`}
                 alt={product.name}
               />
 

@@ -10,7 +10,7 @@ function Phones({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`http://localhost:5000/${product.image}`}
+            src={`https://gadgetshop.onrender.com/${product.image}`}
             alt={product.name}
           />
 
@@ -38,7 +38,7 @@ function Laptop({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`http://localhost:5000/${product.image}`}
+            src={`https://gadgetshop.onrender.com/${product.image}`}
             alt={product.name}
           />
 
@@ -66,7 +66,7 @@ function Tablet({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`http://localhost:5000/${product.image}`}
+            src={`https://gadgetshop.onrender.com/${product.image}`}
             alt={product.name}
           />
 
@@ -94,6 +94,33 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const [msg, setMsg] = useState("");
+
+
+  
+  const [searchInput, setSearchInput] = useState('');
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const handleSearch = (event) => {
+    const input = event.target.value;
+    setSearchInput(input);
+
+    const filteredPhones = phones.filter((product) =>
+      product.name.toLowerCase().includes(input.toLowerCase())
+    );
+    const filteredTablets = tablets.filter((product) =>
+      product.name.toLowerCase().includes(input.toLowerCase())
+    );
+    const filteredLaptops = laptops.filter((product) =>
+      product.name.toLowerCase().includes(input.toLowerCase())
+    );
+
+    setFilteredProducts({
+      phones: filteredPhones,
+      tablets: filteredTablets,
+      laptops: filteredLaptops,
+    });
+  };
+
 
   console.log("Products:", products);
   const handleSlider = (direction) => {
@@ -137,7 +164,7 @@ const HomePage = () => {
     // Send the request to add the product to the user's cart
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/cart",
+        "https://gadgetshop.onrender.com/api/auth/cart",
         { productId: product._id },
         {
           headers: {
@@ -170,7 +197,7 @@ const HomePage = () => {
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/producttask/products"
+        "https://gadgetshop.onrender.com/api/producttask/products"
       );
       setProducts(data);
       console.log("Response data:", data); // Check the response data
@@ -194,7 +221,7 @@ const HomePage = () => {
         <GlobalStyle />
 
         <div className={styles.searchbar}>
-          <input type="text" placeholder="Search products..." />
+          <input type="text" placeholder="Search products..." value={searchInput} onChange={handleSearch} />
           <button className={styles.searchbutton}>Search</button>
         </div>
         <div className={styles.logoContainer}>
@@ -224,13 +251,13 @@ const HomePage = () => {
 
         <div className={styles.productcontainer} ref={productContainerRef}>
           {activeTab === "phones" && (
-            <Phones products={phones} onCart={handleCart} />
+            <Phones products={filteredProducts.phones || phones} onCart={handleCart} />
           )}
           {activeTab === "tablets" && (
-            <Tablet products={tablets} onCart={handleCart} />
+            <Tablet  products={filteredProducts.tablets || tablets} onCart={handleCart} />
           )}
           {activeTab === "laptops" && (
-            <Laptop products={laptops} onCart={handleCart} />
+            <Laptop  products={filteredProducts.laptops || laptops} onCart={handleCart} />
           )}
         </div>
       </div>

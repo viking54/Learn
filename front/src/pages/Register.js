@@ -29,8 +29,8 @@ const Register = () => {
     setLoading(true);
     try {
       const url = data.isSeller
-        ? "http://localhost:5000/api/sellertask"
-        : "http://localhost:5000/api/task";
+        ? "https://gadgetshop.onrender.com/api/sellertask"
+        : "https://gadgetshop.onrender.com/api/task";
       const { data: res } = await axios.post(url, data);
       setLoading(false);
       setMsg(res.message);
