@@ -11,7 +11,7 @@ function Navbar() {
 
   const logout = async () => {
     try {
-      const res = await fetch("https://gadgetshop.onrender.com/api/auth/logout", {
+      const res = await fetch("http://localhost:5000/api/auth/logout", {
         method: "GET",
         headers: {
           Accept: "application/json",

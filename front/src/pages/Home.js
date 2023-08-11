@@ -10,7 +10,7 @@ function Phones({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`https://gadgetshop.onrender.com/${product.image}`}
+            src={`http://localhost:5000/${product.image}`}
             alt={product.name}
           />
 
@@ -38,7 +38,7 @@ function Laptop({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`https://gadgetshop.onrender.com/${product.image}`}
+            src={`http://localhost:5000/${product.image}`}
             alt={product.name}
           />
 
@@ -66,7 +66,7 @@ function Tablet({ products, onCart }) {
         <div key={product._id} className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`https://gadgetshop.onrender.com/${product.image}`}
+            src={`http://localhost:5000/${product.image}`}
             alt={product.name}
           />
 
@@ -164,7 +164,7 @@ const HomePage = () => {
     // Send the request to add the product to the user's cart
     try {
       const response = await axios.post(
-        "https://gadgetshop.onrender.com/api/auth/cart",
+        "http://localhost:5000/api/auth/cart",
         { productId: product._id },
         {
           headers: {
@@ -197,7 +197,7 @@ const HomePage = () => {
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get(
-        "https://gadgetshop.onrender.com/api/producttask/products"
+        "http://localhost:5000/api/producttask/products"
       );
       setProducts(data);
       console.log("Response data:", data); // Check the response data

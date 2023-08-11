@@ -28,8 +28,8 @@ const Login = () => {
     setLoading(true);
     try {
       const url = data.isSeller
-        ? "https://gadgetshop.onrender.com/api/sellerauth"
-        : "https://gadgetshop.onrender.com/api/auth";
+        ? "http://localhost:5000/api/sellerauth"
+        : "http://localhost:5000/api/auth";
         const { data: res } = await axios.post(url, data, {
           withCredentials: true, // Set withCredentials to true to include cookies
         });
@@ -58,8 +58,8 @@ const Login = () => {
     setLoading(true);
     try {
       const url = data.isSeller
-       ?"https://gadgetshop.onrender.com/api/sellerlogVerify"
-       : "https://gadgetshop.onrender.com/api/logVerify";
+       ?"http://localhost:5000/api/sellerlogVerify"
+       : "http://localhost:5000/api/logVerify";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message)
       setLoading(false);

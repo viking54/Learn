@@ -11,7 +11,7 @@ function Cart({ cart , onDelete, onBuy }) {
     <>
         {cart.map((product) => (
     <div key={product._id} className={styles.productcard}>
-   <img className={styles.productimage} src={`https://gadgetshop.onrender.com/${product.image}`} alt={product.name} />
+   <img className={styles.productimage} src={`http://localhost:5000/${product.image}`} alt={product.name} />
     
     <div className={styles.producttitle}>{product.name}</div>
     <div className={styles.productprice}>{product.price}</div>
@@ -42,7 +42,7 @@ function Ordr({order , onCancel}) {
   return (
    <>     {order.map((product) => (
     <div key={product._id} className={styles.productcard}>
-   <img className={styles.productimage} src={`https://gadgetshop.onrender.com/${product.image}`} alt={product.name} />
+   <img className={styles.productimage} src={`http://localhost:5000/${product.image}`} alt={product.name} />
     <div className={styles.producttitle}>{product.name}</div>
     <div className={styles.productprice}>{product.price}</div>
     {product.status!=="Delivered" && product.status!=="Cancelled"   && ( <button className={styles.cardbutton} style={{ backgroundColor: 'brown' }} onClick={() => onCancel(product._id)}>Cancel Order</button>)}
@@ -72,7 +72,7 @@ const Orders = () => {
   const fetchCart = async() => {
    
     try {
-      const { data } = await axios.get(`https://gadgetshop.onrender.com/api/producttask/cartCall/${userData._id}`);
+      const { data } = await axios.get(`http://localhost:5000/api/producttask/cartCall/${userData._id}`);
    
       setProducts(data);
       console.log('Response data:', data); // Check the response data
@@ -86,7 +86,7 @@ const Orders = () => {
   const fetchOrders = async() => {
    
     try {
-      const { data } = await axios.get(`https://gadgetshop.onrender.com/api/producttask/orderCall/${userData._id}`);
+      const { data } = await axios.get(`http://localhost:5000/api/producttask/orderCall/${userData._id}`);
       setOrderProducts(data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -113,7 +113,7 @@ const Orders = () => {
   };
   const callPage = async () => {
     try {
-      const res = await fetch("https://gadgetshop.onrender.com/api/sellerauth/authUser", {
+      const res = await fetch("http://localhost:5000/api/sellerauth/authUser", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -139,7 +139,7 @@ const Orders = () => {
 
   const handleDelete = async (productId) => {
     try {
-      await axios.delete(`https://gadgetshop.onrender.com/api/producttask/cartproducts/${productId}/${userData._id}`);
+      await axios.delete(`http://localhost:5000/api/producttask/cartproducts/${productId}/${userData._id}`);
       fetchCart(); 
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -160,7 +160,7 @@ const Orders = () => {
     const status = "Cancelled"
     try {
       const response = await axios.put(
-        `https://gadgetshop.onrender.com/api/producttask/updateOrderStatus/${productToCancel}`,
+        `http://localhost:5000/api/producttask/updateOrderStatus/${productToCancel}`,
         { status }
       );
   

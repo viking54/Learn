@@ -45,7 +45,7 @@ const Seller = () => {
       formData.append("desc", data.desc);
       formData.append("image", data.image); // data.image is the File object of the image
 
-      const url = "https://gadgetshop.onrender.com/api/producttask";
+      const url = "http://localhost:5000/api/producttask";
       const { data: res } = await axios.post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Set the proper headers for the FormData
@@ -69,7 +69,7 @@ const Seller = () => {
 
   const callPage = async () => {
     try {
-      const res = await fetch("https://gadgetshop.onrender.com/api/sellerauth/authSeller", {
+      const res = await fetch("http://localhost:5000/api/sellerauth/authSeller", {
         method: "GET",
         headers: {
           Accept: "application/json",

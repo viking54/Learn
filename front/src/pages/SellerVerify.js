@@ -13,7 +13,7 @@ const SellerVerify = () => {
   useEffect(() => {
     const VerifyEmailUrl = async () => {
       try {
-        const url = `https://gadgetshop.onrender.com/api/sellertask/${param.id}/sellerVerify/${param.token}`;
+        const url = `http://localhost:5000/api/sellertask/${param.id}/sellerVerify/${param.token}`;
         const { data } = await axios.get(url);
         console.log(data);
         setValidUrl(true);

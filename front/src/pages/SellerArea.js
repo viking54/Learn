@@ -15,7 +15,7 @@ function SellerProducts({ products, onDelete }) {
     <>
       {products.map((product) => (
         <div key={product._id} className={styles.productcard}>
-          <img className={styles.productimage} src={`https://gadgetshop.onrender.com/${product.image}`} alt={product.name} />
+          <img className={styles.productimage} src={`http://localhost:5000/${product.image}`} alt={product.name} />
           <div className={styles.producttitle}>{product.name}</div>
           <div className={styles.productprice}>{product.price}</div>
           <div className={styles.productprice}>Quantity: {product.quantity}</div>
@@ -54,7 +54,7 @@ const SellerArea = () => {
   
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get(`https://gadgetshop.onrender.com/api/producttask/products/${sellerData._id}`);
+      const { data } = await axios.get(`http://localhost:5000/api/producttask/products/${sellerData._id}`);
       setProducts(data);
       console.log('Response data:', data); // Check the response data
     } catch (error) {
@@ -69,7 +69,7 @@ const SellerArea = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`https://gadgetshop.onrender.com/api/producttask/products/${productToDelete}`);
+      await axios.delete(`http://localhost:5000/api/producttask/products/${productToDelete}`);
       fetchProducts();
     } catch (error) {
       console.error('Error deleting product:', error);

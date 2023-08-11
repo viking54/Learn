@@ -26,7 +26,7 @@ const Edit = () => {
     e.preventDefault();
     setLoading(true);
     try {
-        const url = `https://gadgetshop.onrender.com/api/producttask/edit/${proData._id}`;
+        const url = `http://localhost:5000/api/producttask/edit/${proData._id}`;
         const {data:res} = await axios.post(url,data);
         setLoading(false);
         setMsg(res.message);

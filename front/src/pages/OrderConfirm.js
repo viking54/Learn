@@ -64,7 +64,7 @@ const OrderConfirm = () => {
         price: product.price,
       };
 
-      const url = `https://gadgetshop.onrender.com/api/producttask/saveorder/${userData._id}`;
+      const url = `http://localhost:5000/api/producttask/saveorder/${userData._id}`;
       const { data: res } = await axios.post(url, formData);
       setLoading(false);
       showSuccessMessage(res.message);
@@ -106,7 +106,7 @@ const OrderConfirm = () => {
         <div className={styles.productcard}>
           <img
             className={styles.productimage}
-            src={`https://gadgetshop.onrender.com/${product.image}`}
+            src={`http://localhost:5000/${product.image}`}
             alt={product.name}
           />
           <div className={styles.producttitle}>{product.name}</div>
